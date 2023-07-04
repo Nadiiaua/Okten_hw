@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul id="sessionslist"></ul>
+
+
+<script>
+ let sessionslist = document.getElementById('sessionslist');
+ function buildSession () {
+     let sessions = JSON.parse(localStorage.getItem('sessions')) || [];
+     sessions.forEach(function (session) {
+        let listItem = document.createElement('li');
+         listItem.textContent = session;
+         sessionslist.appendChild(listItem);
+     });
+ }
+ buildSession();
+
+
+</script>
+</body>
+</html>

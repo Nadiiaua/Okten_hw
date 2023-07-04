@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>users</title>
+</head>
+<body>
+<h1>Users</h1>
+<ul id="user-list"></ul>
+
+
+<script>
+    // зробити файл users.html
+    // з ендпоінту http://jsonplaceholder.typicode.com/users отримати всіх користувачів
+    //     вивести їх id + name списком та додати посилання з href = user-details.html?id=XXX (замість ХХХ - айді юзера)
+    // при кліку на посилання перехід на відповідну сторінку, на якій буде вся інформація про користувача (всі 15 полів) отримана через додатковий запит
+    // (https://jsonplaceholder.typicode.com/users/XXX   ХХХ - айді користувача)
+
+    fetch('http://jsonplaceholder.typicode.com/users')
+        .then(response => response.json())
+        .then(users => {
+            const userList = document.getElementById('user-list');
+            users.forEach(user => {
+                const listItem = document.createElement('li');
+                const link = document.createElement('a');
+                link.textContent = `${user.id} - ${user.name}`;
+                link.href = `userDetails.html?id=${user.id}`;
+                listItem.appendChild(link);
+                userList.appendChild(listItem);
+            });
+        });
+</script>
+</body>
+</html>

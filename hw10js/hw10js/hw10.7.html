@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form name="form">
+    <input type="text" name="row" id="row" />
+    <input type="text" name="column" id="column" />
+    <input type="text" name="content" id="content" />
+    <button>Створити таблицю</button>
+</form>
+<script>
+    // *** Створити 3 інпута та кнопку. Один визначає кількість рядків, другий - кількість ячеєк, третій вмиіст ячеєк.
+    //     При натисканні кнопки, вся ця інформація зчитується і формується табличка, з відповідним вмістом.
+    // (Додатковачастина для завдання)
+    //
+ let formTable = document.form
+    formTable.onsubmit = function(e){
+     e.preventDefault()
+        let rows = document.form.row.value
+        let columns = document.form.column.value
+        let content = document.form.content.value
+        let table = document.createElement('table')
+        for (let i = 0; i < rows; i++){
+            let tr = document.createElement('tr')
+            for (let j = 0; j < columns; j++){
+                let td = document.createElement('td')
+                td.innerText = content
+                tr.appendChild(td)
+            }
+            table.appendChild(tr)
+        }
+        document.body.appendChild(table)
+    }
+
+</script>
+</body>
+</html>

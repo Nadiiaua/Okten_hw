@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>User Details</h1>
+<div id="user-details"></div>
+
+
+<script>
+  let urlParams = new URLSearchParams(window.location.search);
+  let userId = urlParams.get('id');
+
+  fetch(`http://jsonplaceholder.typicode.com/users/${userId}`)
+          .then(response => response.json())
+          .then(user => {
+            const userDetails = document.getElementById('user-details');
+            const userHTML = `
+                    <p>Name:${user.name}</p>
+                    <p>Username: ${user.username}</p>
+                    <p>Email: ${user.email}</p>
+                    <p>Phone: ${user.phone}</p>
+                    <p>Website: ${user.website}</p>
+                    <p>Address: ${user.address.street}, ${user.address.suite}, ${user.address.city}, ${user.address.zipcode}</p>
+                    <p>Company:${user.company.name}</p>`
+            userDetails.innerHTML = userHTML;
+          });
+
+</script>
+</body>
+</html>
