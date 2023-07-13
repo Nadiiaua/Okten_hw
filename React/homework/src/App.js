@@ -1,25 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import UserForm from './components/UserForm/UserForm';
+import CommentForm from './components/CommentForm/CommentForm';
+const App = () => {
+    return (
+        <div>
+            <h2>Create User</h2>
+            <UserForm endpoint="http://jsonplaceholder.typicode.com/users" />
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+            <h2>Create Comment</h2>
+            <CommentForm endpoint="http://jsonplaceholder.typicode.com/comments" />
+        </div>
+    );
+};
 
 export default App;
