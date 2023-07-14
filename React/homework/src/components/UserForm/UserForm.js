@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 
-const CreateUserForm = ({ endpoint }) => {
+const UserForm = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
 
@@ -9,7 +9,7 @@ const CreateUserForm = ({ endpoint }) => {
         e.preventDefault();
 
         try {
-            const response = await fetch(endpoint, {
+            const response = await fetch('https://jsonplaceholder.typicode.com/users', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -56,4 +56,4 @@ const CreateUserForm = ({ endpoint }) => {
     );
 };
 
-export default CreateUserForm;
+export default UserForm;

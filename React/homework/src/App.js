@@ -5,10 +5,10 @@ const App = () => {
     return (
         <div>
             <h2>Create User</h2>
-            <UserForm endpoint="http://jsonplaceholder.typicode.com/users" />
+            <UserForm />
 
             <h2>Create Comment</h2>
-            <CommentForm endpoint="http://jsonplaceholder.typicode.com/comments" />
+            <CommentForm />
         </div>
     );
 };
